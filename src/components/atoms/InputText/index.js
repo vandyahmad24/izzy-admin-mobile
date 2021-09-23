@@ -2,11 +2,15 @@ import React from 'react';
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {JenFonts, Warna} from '../../../utils';
 
-const InputText = ({label, placeholder}) => {
+const InputText = ({label, placeholder, ...restProps}) => {
   return (
     <View>
       <Text style={styles.label}>{label}</Text>
-      <TextInput style={styles.input} placeholder={placeholder} />
+      <TextInput
+        style={styles.input}
+        placeholder={placeholder}
+        {...restProps}
+      />
     </View>
   );
 };

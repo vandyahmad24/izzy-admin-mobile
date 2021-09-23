@@ -1,11 +1,21 @@
 import React, {useEffect} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {LogoIzzy} from '../../assets/Icon';
-import { JenFonts } from '../../utils/JenFonts';
+import {getData} from '../../utils';
+import {JenFonts} from '../../utils/JenFonts';
 const SplashScreen = ({navigation}) => {
   useEffect(() => {
+    let dataUser = null;
+    getData('user_token').then(res => {
+      dataUser = res;
+      console.log('Data token ', dataUser);
+    });
     setTimeout(() => {
-      navigation.replace('SignIn');
+      if (dataUser == null) {
+        navigation.replace('SignIn');
+      } else {
+        navigation.replace('Home');
+      }
     }, 2000);
     // tidak terus terender
   }, []);

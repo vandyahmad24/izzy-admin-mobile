@@ -6,6 +6,8 @@ const MainColors = {
   yellow: '#faec40',
   gray: '#7f8c8d',
   gray2: '#E6E6FA',
+  red1: '#E06379',
+  green1: '#168d14',
 };
 
 export const Warna = {
@@ -16,4 +18,8 @@ export const Warna = {
   gray: MainColors.gray,
   gray2: MainColors.gray2,
   yellow: MainColors.yellow,
+  Message: {
+    danger: MainColors.red1,
+    success: MainColors.green1,
+  },
 };
