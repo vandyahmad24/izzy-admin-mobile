@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, BackHandler} from 'react-native';
 import {InputText, HeaderCustome, ButtonCustome, Jarak} from '../../components';
 import {showError, showSuccess, storeData, Warna} from '../../utils';
 // import normalize from 'react-native-normalize';
@@ -53,7 +53,11 @@ const SignIn = ({navigation}) => {
           <Jarak height={24} />
           <ButtonCustome text="Masuk" onPress={onSubmit} />
           <Jarak height={12} />
-          <ButtonCustome text="Batal" color={Warna.gray} />
+          <ButtonCustome
+            text="Batal"
+            color={Warna.gray}
+            onPress={() => BackHandler.exitApp()}
+          />
         </View>
       </View>
     </>

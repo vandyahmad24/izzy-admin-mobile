@@ -16,7 +16,7 @@ const SplashScreen = ({navigation}) => {
       } else {
         navigation.replace('Home');
       }
-    }, 2000);
+    }, 1500);
     // tidak terus terender
   }, []);
 
