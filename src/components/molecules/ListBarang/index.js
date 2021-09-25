@@ -4,16 +4,14 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import {IcPanahKanan} from '../../../assets/Icon';
 import {JenFonts, Warna} from '../../../utils';
 
-const ListBarang = ({onPress}) => {
+const ListBarang = ({onPress, title, lastEdit}) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.containerList}>
           <View style={styles.list}>
-            <Text style={styles.title}>
-              Rolling thunder panjang jeans slim fit
-            </Text>
-            <Text>Terakhir diedit </Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text>{lastEdit} </Text>
           </View>
           <View style={{}}>
             <IcPanahKanan />

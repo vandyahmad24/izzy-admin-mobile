@@ -6,6 +6,7 @@ import ListStok from './ListStok';
 import AddStok from './AddStok';
 import AddNota from './AddNota';
 import AddBarangNota from './AddBarangNota';
+import KategoriEdit from './KategoriEdit';
 
 export {
   SplashScreen,
@@ -16,4 +17,5 @@ export {
   AddStok,
   AddNota,
   AddBarangNota,
+  KategoriEdit,
 };

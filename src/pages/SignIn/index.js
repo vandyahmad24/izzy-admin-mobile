@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, BackHandler} from 'react-native';
 import {InputText, HeaderCustome, ButtonCustome, Jarak} from '../../components';
-import {showError, showSuccess, storeData, Warna} from '../../utils';
+import {API_HOST, showError, showSuccess, storeData, Warna} from '../../utils';
 // import normalize from 'react-native-normalize';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {useFrom} from '../../config';
@@ -15,7 +15,7 @@ const SignIn = ({navigation}) => {
   const onSubmit = () => {
     dispatch({type: 'SET_LOADING', value: true});
     axios
-      .post('https://izzy.asdosku.com/api/login', form)
+      .post(`${API_HOST.url}/login`, form)
       // const response = axios.post(url,data,});
 
       .then(res => {

@@ -46,14 +46,20 @@ const ListStok = ({navigation, route}) => {
     <View style={styles.page}>
       <HeaderCustome
         title="List  Stok"
-        subTitle="19 September 2021 08.53 "
+        subTitle={title}
         onPress={() => navigation.goBack()}
         onBack={() => {}}
       />
 
       <View style={styles.container}>
-        <TouchableOpacity>
-          <Text style={{fontSize: 17, fontFamily: JenFonts.primary[800]}}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('KategoriEdit', {
+              id: id,
+              namaKategori: title,
+            })
+          }>
+          <Text style={{fontSize: 20, fontFamily: JenFonts.primary[800]}}>
             {title}
           </Text>
         </TouchableOpacity>

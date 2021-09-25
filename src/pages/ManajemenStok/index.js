@@ -4,21 +4,26 @@ import {HeaderCustome, ListBarang} from '../../components';
 import {API_HOST, getData, Warna} from '../../utils';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {FAB} from 'react-native-paper';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
 import {showError, showSuccess} from '../../utils';
+import {useIsFocused} from '@react-navigation/native';
+import moment from 'moment';
+import 'moment/min/moment-with-locales';
 
 const ManajemenStok = ({navigation}) => {
   const [listKategori, setListKategori] = useState([]);
-  // let dataUser = null;
+  const dispatch = useDispatch();
+
   useEffect(() => {
+    dispatch({type: 'SET_LOADING', value: true});
+    getKategori();
+  }, []);
+
+  const getKategori = () => {
     let token = getData('user_token').then(res => {
       return res;
     });
-    ListKategori(token);
-    console.log('ini list ', listKategori);
-  }, []);
-  const ListKategori = token => {
     axios
       .get(`${API_HOST.url}/kategori`, {
         token: token,
@@ -28,9 +33,13 @@ const ManajemenStok = ({navigation}) => {
         let data = response.data.data;
         console.log('INI DATA', data);
         setListKategori(data);
+        console.log('ini list wktu then ', listKategori);
+        dispatch({type: 'SET_LOADING', value: false});
+        dispatch({type: 'SET_KATEGORI', value: data});
       })
       .catch(function (error) {
         // handle error
+        dispatch({type: 'SET_LOADING', value: false});
         console.log(error.response);
       });
   };
@@ -45,22 +54,21 @@ const ManajemenStok = ({navigation}) => {
       />
       <View style={styles.pageContainer}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <ListBarang
-            onPress={() =>
-              navigation.navigate('ListStok', {
-                title: 'Rollignthunder',
-                id: 11,
-              })
-            }
-          />
-          <ListBarang />
-          <ListBarang />
-          <ListBarang />
-          <ListBarang />
-          <ListBarang />
-          <ListBarang />
-          <ListBarang />
-          <ListBarang />
+          {listKategori.map(value => {
+            return (
+              <ListBarang
+                key={value.id}
+                title={value.nama}
+                lastEdit={value.waktu}
+                onPress={() =>
+                  navigation.navigate('ListStok', {
+                    id: value.id,
+                    title: value.nama,
+                  })
+                }
+              />
+            );
+          })}
         </ScrollView>
         <FAB
           style={styles.fab}
