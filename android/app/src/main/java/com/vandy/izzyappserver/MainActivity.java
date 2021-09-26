@@ -1,4 +1,4 @@
-package com.izzyappserver;
+package com.vandy.izzyappserver;
 
 import com.facebook.react.ReactActivity;
 import android.os.Bundle;
