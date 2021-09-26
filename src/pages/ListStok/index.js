@@ -94,7 +94,7 @@ const ListStok = ({navigation, route}) => {
     await Share.open({url: imageURI});
     console.log('Ini capture view shot', imageURI);
   }
-  const [state, setState] = React.useState({open: false});
+  const [state, setState] = useState({open: false});
 
   const onStateChange = ({open}) => setState({open});
 
