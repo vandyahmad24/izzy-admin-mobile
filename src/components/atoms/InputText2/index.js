@@ -3,7 +3,7 @@ import {StyleSheet, Text, TextInput, View} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {JenFonts, Warna} from '../../../utils';
 
-const InputText2 = ({label, placeholder, readOnly, warna}) => {
+const InputText2 = ({label, placeholder, readOnly, warna, ...restProps}) => {
   return (
     <View>
       <Text style={styles.label}>{label}</Text>
@@ -11,6 +11,7 @@ const InputText2 = ({label, placeholder, readOnly, warna}) => {
         style={styles.input(warna)}
         placeholder={placeholder}
         editable={readOnly}
+        {...restProps}
       />
     </View>
   );
