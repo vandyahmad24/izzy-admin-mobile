@@ -10,6 +10,7 @@ import {
   SplashScreen,
   StokKategori,
   KategoriEdit,
+  EditStok,
 } from '../pages';
 import ManajemenStok from '../pages/ManajemenStok';
 import Nota from '../pages/Nota';
@@ -70,6 +71,11 @@ const Router = () => {
       <Stack.Screen
         name="KategoriEdit"
         component={KategoriEdit}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="EditStok"
+        component={EditStok}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

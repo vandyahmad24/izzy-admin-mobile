@@ -55,7 +55,7 @@ const StokKategori = ({navigation, route}) => {
       })
       .catch(err => {
         console.log(err.response);
-        // dispatch({type: 'SET_LOADING', value: false});
+        dispatch({type: 'SET_LOADING', value: false});
         showError(err.response.data.data.message);
       });
   };
@@ -77,7 +77,7 @@ const StokKategori = ({navigation, route}) => {
       <HeaderCustome
         title="Edit Kategori"
         subTitle={sub}
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.replace('ManajemenStok')}
         onBack={() => {}}
       />
       <View style={styles.pageContainer}>
@@ -92,7 +92,7 @@ const StokKategori = ({navigation, route}) => {
         <ButtonCustome
           text="Batal"
           color={Warna.gray}
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.replace('ManajemenStok')}
         />
         <Jarak height={24} />
         <ButtonCustome text="Hapus" color={Warna.red} onPress={fungsiHapus} />

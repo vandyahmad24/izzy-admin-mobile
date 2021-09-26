@@ -7,9 +7,6 @@ import {FAB} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import axios from 'axios';
 import {showError, showSuccess} from '../../utils';
-import {useIsFocused} from '@react-navigation/native';
-import moment from 'moment';
-import 'moment/min/moment-with-locales';
 
 const ManajemenStok = ({navigation}) => {
   const [listKategori, setListKategori] = useState([]);
@@ -29,18 +26,15 @@ const ManajemenStok = ({navigation}) => {
         token: token,
       })
       .then(function (response) {
-        // handle success
         let data = response.data.data;
-        console.log('INI DATA', data);
         setListKategori(data);
-        console.log('ini list wktu then ', listKategori);
         dispatch({type: 'SET_LOADING', value: false});
-        dispatch({type: 'SET_KATEGORI', value: data});
       })
       .catch(function (error) {
         // handle error
         dispatch({type: 'SET_LOADING', value: false});
         console.log(error.response);
+        showError(error.response.data.data.message);
       });
   };
 
@@ -49,7 +43,7 @@ const ManajemenStok = ({navigation}) => {
       <HeaderCustome
         title="Manajemen Stok"
         subTitle="Manajemen Stok Jeans"
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate('Home')}
         onBack={() => {}}
       />
       <View style={styles.pageContainer}>

@@ -4,6 +4,7 @@ import Home from './Home';
 import StokKategori from './StokKategori';
 import ListStok from './ListStok';
 import AddStok from './AddStok';
+import EditStok from './EditStok';
 import AddNota from './AddNota';
 import AddBarangNota from './AddBarangNota';
 import KategoriEdit from './KategoriEdit';
@@ -18,4 +19,5 @@ export {
   AddNota,
   AddBarangNota,
   KategoriEdit,
+  EditStok,
 };

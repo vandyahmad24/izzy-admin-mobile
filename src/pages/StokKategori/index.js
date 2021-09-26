@@ -38,7 +38,7 @@ const StokKategori = ({navigation}) => {
       <HeaderCustome
         title="Tambah Kategori"
         subTitle="Manajemen Stok Jeans"
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.navigate('ManajemenStok')}
         onBack={() => {}}
       />
       <View style={styles.pageContainer}>
@@ -53,7 +53,7 @@ const StokKategori = ({navigation}) => {
         <ButtonCustome
           text="Batal"
           color={Warna.gray}
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate('ManajemenStok')}
         />
       </View>
     </View>

@@ -14,7 +14,7 @@ const AddBarangNota = ({navigation}) => {
   return (
     <View style={styles.page}>
       <HeaderCustome
-        title="Nota"
+        title="Notaa"
         subTitle="Tambah Barang"
         onBack={() => {}}
         onPress={() => navigation.navigate('Nota')}

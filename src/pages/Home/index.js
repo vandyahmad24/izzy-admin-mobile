@@ -10,7 +10,7 @@ const Home = ({navigation}) => {
     <View style={styles.page}>
       <HeaderCustome
         title="Homepage"
-        onPress={() => navigation.goBack()}
+        onPress={() => {}}
         // onBack={() => {}}
       />
       {/* View Pertama */}

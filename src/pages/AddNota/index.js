@@ -4,7 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 const AddNota = () => {
   return (
     <View>
-      <Text>Halo Nota</Text>
+      <Text>Halo Nmota</Text>
     </View>
   );
 };
